@@ -1,32 +1,22 @@
-# MIS Care — Medical Transportation Website
+# MIS Care — premium interactive GitHub Pages website
 
-A responsive, static website ready for GitHub Pages. Built with HTML, CSS, and JavaScript. No build step, hosting subscription, or third-party libraries required.
+## Deploy
+1. Unzip, then upload **the files inside this folder** (not the enclosing folder) into your GitHub repository, e.g. `bishooyousry/mis-care-website`.
+2. In Repository Settings → Pages, select Deploy from a branch → `main` → `/ (root)`.
+3. After deployment, hard refresh your browser (Ctrl+Shift+R).
 
-## Files
-- `index.html` — site content and structure
-- `styles.css` — desktop and mobile design
-- `script.js` — mobile navigation and email inquiry form
-- `assets/mis-care-logo.png` — logo processed from the supplied artwork
-- `assets/favicon.png` — browser tab icon
+## Activate form email delivery — REQUIRED
+The form uses [FormSubmit](https://formsubmit.co) with **miscare97@gmail.com** as its recipient. The first submitted form normally triggers a **one-time activation/confirmation email to miscare97@gmail.com**. The inbox owner must open that message and click the activation/verification link. Check Spam/Junk if necessary. **Until that happens, requests should not be assumed to arrive.** Submit a test inquiry after verification, confirm the email is received, then test from a second browser/device.
 
-## Publish to GitHub Pages
-1. Create a **public** repository on GitHub (for example `mis-care-website`).
-2. Upload the **contents** of this folder to the repository root — especially `index.html`.
-3. In the repository, go to **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select branch **main**, folder **/(root)**, and click **Save**.
-6. After GitHub deploys, open `https://YOUR-USERNAME.github.io/mis-care-website/`.
+The form uses the FormSubmit AJAX endpoint `https://formsubmit.co/ajax/miscare97@gmail.com` with a standard HTML POST fallback to `https://formsubmit.co/miscare97@gmail.com`. No visitor email application is required. Email delivery is provided by a third-party form service, not directly by GitHub Pages. Email can be filtered/delayed; there is no guaranteed delivery or booking confirmation. For commercial production use, consider a contracted form provider/backend with a confirmed privacy and security agreement.
 
-You can also host the same folder on any static hosting service.
+## Privacy and service notes
+This contact form sends entered name, phone, email, optional date, trip type and freeform details to third-party FormSubmit and the recipient Gmail inbox. **Do not collect diagnoses, patient records, insurance details, or other sensitive medical information** without an appropriately secured/compliant intake process. Transport availability, equipment, geographic service area, rates, and actual bookings require staff confirmation. This is a non-emergency contact form and not an ambulance dispatch service.
 
-## Important notes
-- **Contact:** phone +1 (551) 263-4257; email ibrahim_eg76@yahoo.com.
-- The inquiry form uses `mailto:`. It launches the visitor's own configured email app with a prefilled email. **It does not directly submit a form** and requires the visitor to send the message. This is intentional for a serverless GitHub Pages site.
-- If direct website form submissions are needed, connect a trusted form backend (e.g. Formspree) and configure its account and privacy/security settings.
-- The text deliberately avoids unverified business claims about operating hours, licenses, vehicle types, specific service area, insurance acceptance, wheelchair accessibility, or service guarantees. Confirm these before adding them.
-- Do not collect protected medical data or sensitive personal health details through a basic email or public form.
-- For emergencies, visitors are directed to call 911; the website does not advertise emergency ambulance services.
+## Edit
+- `index.html`: copy and sections. Logo is also embedded as an inline data image to avoid broken paths.
+- `styles.css`: appearance, animations, mobile responsive rules.
+- `script.js`: interactivity, scroll animation, and AJAX submission.
+- `assets/`: a backup logo and favicon.
 
-
-## Logo fix
-The MIS Care brand logo and favicon are embedded directly inside `index.html`, so missing asset directories cannot break the header/footer logo. Upload `index.html`, `styles.css`, and `script.js` at the root of your GitHub repository. The `assets/` folder is also included for future edits.
+Contact number: +1 (551) 263-4257. Email receiving requests: miscare97@gmail.com. Prior secondary email: ibrahim_eg76@yahoo.com.
