@@ -56,7 +56,7 @@ form.addEventListener('submit', async (event) => {
   status.className = 'form-note status-message';
   try {
     const data = new FormData(form);
-    const response = await fetch('https://formsubmit.co/ajax/miscare97@gmail.com', {
+    const response = await fetch('https://formsubmit.co/ajax/ibrahim_eg76@yahoo.com', {
       method: 'POST', body: data, headers: { 'Accept': 'application/json' }
     });
     const result = await response.json();
@@ -68,7 +68,7 @@ form.addEventListener('submit', async (event) => {
     submit.textContent = '✓ Request submitted';
     setTimeout(() => {submit.textContent = originalText;}, 5500);
   } catch (error) {
-    status.textContent = 'We could not submit your request. Please call +1 (551) 263-4257 or email miscare97@gmail.com directly. (' + (error.message || 'Network error') + ')';
+    status.textContent = 'We could not submit your request. Please call +1 (551) 263-4257 or email ibrahim_eg76@yahoo.com directly. (' + (error.message || 'Network error') + ')';
     status.className = 'form-note status-message status-error';
     submit.textContent = originalText;
   } finally {submit.disabled = false;}

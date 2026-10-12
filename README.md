@@ -6,9 +6,9 @@
 3. After deployment, hard refresh your browser (Ctrl+Shift+R).
 
 ## Activate form email delivery — REQUIRED
-The form uses [FormSubmit](https://formsubmit.co) with **miscare97@gmail.com** as its recipient. The first submitted form normally triggers a **one-time activation/confirmation email to miscare97@gmail.com**. The inbox owner must open that message and click the activation/verification link. Check Spam/Junk if necessary. **Until that happens, requests should not be assumed to arrive.** Submit a test inquiry after verification, confirm the email is received, then test from a second browser/device.
+The form uses [FormSubmit](https://formsubmit.co) with **ibrahim_eg76@yahoo.com** as its recipient. The first submitted form normally triggers a **one-time activation/confirmation email to ibrahim_eg76@yahoo.com**. The inbox owner must open that message and click the activation/verification link. Check Spam/Junk if necessary. **Until that happens, requests should not be assumed to arrive.** Submit a test inquiry after verification, confirm the email is received, then test from a second browser/device.
 
-The form uses the FormSubmit AJAX endpoint `https://formsubmit.co/ajax/miscare97@gmail.com` with a standard HTML POST fallback to `https://formsubmit.co/miscare97@gmail.com`. No visitor email application is required. Email delivery is provided by a third-party form service, not directly by GitHub Pages. Email can be filtered/delayed; there is no guaranteed delivery or booking confirmation. For commercial production use, consider a contracted form provider/backend with a confirmed privacy and security agreement.
+The form uses the FormSubmit AJAX endpoint `https://formsubmit.co/ajax/ibrahim_eg76@yahoo.com` with a standard HTML POST fallback to `https://formsubmit.co/ibrahim_eg76@yahoo.com`. No visitor email application is required. Email delivery is provided by a third-party form service, not directly by GitHub Pages. Email can be filtered/delayed; there is no guaranteed delivery or booking confirmation. For commercial production use, consider a contracted form provider/backend with a confirmed privacy and security agreement.
 
 ## Privacy and service notes
 This contact form sends entered name, phone, email, optional date, trip type and freeform details to third-party FormSubmit and the recipient Gmail inbox. **Do not collect diagnoses, patient records, insurance details, or other sensitive medical information** without an appropriately secured/compliant intake process. Transport availability, equipment, geographic service area, rates, and actual bookings require staff confirmation. This is a non-emergency contact form and not an ambulance dispatch service.
@@ -19,4 +19,4 @@ This contact form sends entered name, phone, email, optional date, trip type and
 - `script.js`: interactivity, scroll animation, and AJAX submission.
 - `assets/`: a backup logo and favicon.
 
-Contact number: +1 (551) 263-4257. Email receiving requests: miscare97@gmail.com. Prior secondary email: ibrahim_eg76@yahoo.com.
+Contact number: +1 (551) 263-4257. Email receiving requests: ibrahim_eg76@yahoo.com. 
