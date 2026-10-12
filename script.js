@@ -46,7 +46,8 @@ document.querySelectorAll('[data-service]').forEach(link => link.addEventListene
 }));
 
 // The inbox owner must approve FormSubmit once; a GitHub Pages site cannot do this itself.
-const RECIPIENT = 'ibrahim_eg76@yahoo.com';
+const RECIPIENT = 'miscare97@gmail.com';
+const PUBLIC_EMAIL = 'ibrahim_eg76@yahoo.com';
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${RECIPIENT}`;
 const submit = form.querySelector('button[type=submit]');
 const originalText = submit.textContent;
@@ -78,8 +79,8 @@ form.addEventListener('submit', async (event) => {
   } catch (error) {
     const activation = error.message === 'activation_required';
     status.textContent = activation
-      ? `Request not sent: the MIS Care team must activate this form. Please check ${RECIPIENT} for an email from FormSubmit and click the activation link (including the spam folder). Until then, please call +1 (551) 263-4257 or email ${RECIPIENT} directly.`
-      : `We couldn't send your request. Please call +1 (551) 263-4257 or email ${RECIPIENT} directly. ${error.message === 'Failed to fetch' ? 'Please check your connection.' : ''}`;
+      ? `Request not sent: the MIS Care team must activate this form. Please contact MIS Care by phone at +1 (551) 263-4257 or email ${PUBLIC_EMAIL} directly while the request form is being activated.`
+      : `We couldn't send your request. Please call +1 (551) 263-4257 or email ${PUBLIC_EMAIL} directly. ${error.message === 'Failed to fetch' ? 'Please check your connection.' : ''}`;
     status.className = 'form-note status-message status-error';
     submit.textContent = originalText;
   } finally {
