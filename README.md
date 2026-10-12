@@ -20,3 +20,6 @@ This contact form sends entered name, phone, email, optional date, trip type and
 - `assets/`: a backup logo and favicon.
 
 Contact number: +1 (551) 263-4257. Email receiving requests: ibrahim_eg76@yahoo.com. 
+
+## If you see an activation error
+This cannot be fixed by website code alone. Sign in to **ibrahim_eg76@yahoo.com**, open the FormSubmit activation email (check Junk/Spam), click **Activate Form**, then submit a new test request and verify that it arrives. If the screenshot mentions `miscare97@gmail.com`, your hosted page is running old code. Replace **index.html and script.js**, commit, wait for deployment, and hard-refresh. The cache-busting version query in index.html prevents stale JavaScript. Do not use the Yahoo inbox's password in code.

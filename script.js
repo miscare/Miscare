@@ -45,6 +45,9 @@ document.querySelectorAll('[data-service]').forEach(link => link.addEventListene
   setTimeout(() => form.closest('.contact-form-card')?.classList.remove('form-highlight'), 950);
 }));
 
+// The inbox owner must approve FormSubmit once; a GitHub Pages site cannot do this itself.
+const RECIPIENT = 'ibrahim_eg76@yahoo.com';
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${RECIPIENT}`;
 const submit = form.querySelector('button[type=submit]');
 const originalText = submit.textContent;
 form.addEventListener('submit', async (event) => {
@@ -52,24 +55,34 @@ form.addEventListener('submit', async (event) => {
   if (!form.reportValidity()) return;
   submit.disabled = true;
   submit.textContent = 'Sending your request…';
-  status.textContent = 'Sending securely through our form delivery service…';
+  status.textContent = 'Sending your request…';
   status.className = 'form-note status-message';
   try {
-    const data = new FormData(form);
-    const response = await fetch('https://formsubmit.co/ajax/ibrahim_eg76@yahoo.com', {
-      method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+    const response = await fetch(FORM_ENDPOINT, {
+      method: 'POST', body: new FormData(form),
+      headers: { Accept: 'application/json' }
     });
     const result = await response.json();
-    if (!response.ok || result.success === false || result.success === 'false')
-      throw new Error(result.message || 'Submission could not be processed.');
+    const message = String(result.message || '');
+    const approved = response.ok && (result.success === true || result.success === 'true');
+    const needsActivation = /activat|confirm|verif/i.test(message);
+    if (!approved || needsActivation) {
+      if (needsActivation) throw new Error('activation_required');
+      throw new Error(message || 'The form service did not accept the request.');
+    }
     form.reset();
-    status.textContent = 'Request submitted! Please note: email delivery requires the MIS Care inbox to have activated FormSubmit. A team member will contact you after reviewing the request. For urgent questions, please call us.';
+    status.textContent = 'Your inquiry was accepted for email delivery. This is not a confirmed ride or appointment. If you do not hear back, call +1 (551) 263-4257.';
     status.className = 'form-note status-message status-success';
-    submit.textContent = '✓ Request submitted';
-    setTimeout(() => {submit.textContent = originalText;}, 5500);
+    submit.textContent = '✓ Request sent';
+    setTimeout(() => { submit.textContent = originalText; }, 5000);
   } catch (error) {
-    status.textContent = 'We could not submit your request. Please call +1 (551) 263-4257 or email ibrahim_eg76@yahoo.com directly. (' + (error.message || 'Network error') + ')';
+    const activation = error.message === 'activation_required';
+    status.textContent = activation
+      ? `Request not sent: the MIS Care team must activate this form. Please check ${RECIPIENT} for an email from FormSubmit and click the activation link (including the spam folder). Until then, please call +1 (551) 263-4257 or email ${RECIPIENT} directly.`
+      : `We couldn't send your request. Please call +1 (551) 263-4257 or email ${RECIPIENT} directly. ${error.message === 'Failed to fetch' ? 'Please check your connection.' : ''}`;
     status.className = 'form-note status-message status-error';
     submit.textContent = originalText;
-  } finally {submit.disabled = false;}
+  } finally {
+    submit.disabled = false;
+  }
 });
